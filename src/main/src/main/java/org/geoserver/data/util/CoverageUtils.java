@@ -335,7 +335,10 @@ public class CoverageUtils {
                     } else {
                         Class[] clArray = {Color.class};
                         Object[] inArray = {params.get(key)};
-                        value = target.getConstructor(clArray).newInstance(inArray);
+                        //We cannot invoke new Color() the constructor doesn't exist
+                        //value = target.getConstructor(clArray).newInstance(inArray);
+                        //use a default BLACK Color.
+                        value = Color.BLACK;
                     }
                 } else if (key.equalsIgnoreCase("BackgroundValues")) {
                     if (params.get(key) != null) {
